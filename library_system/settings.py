@@ -118,12 +118,6 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
-CELERY_BEAT_SCHEDULE = {
-    'check-overdue-loans': {
-        'task': 'library.tasks.check_overdue_loans',
-        'schedule': crontab(hour='0', minute='0')
-    }
-}
 
 # Email Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For development

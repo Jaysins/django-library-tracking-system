@@ -68,7 +68,7 @@ class MemberViewSet(viewsets.ModelViewSet):
     def top_active_members(self, request):
         members = Member.objects.annotate(active_loans=Count('loans', filter=Q(
             loans__is_returned=False))).order_by(
-            '-active_loan')[:5]
+            '-active_loans')[:5]
 
         data = [{
             "id": member.id,
